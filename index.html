@@ -1,85 +1,69 @@
 ﻿<!doctype html>
-<html lang=lang="zh-TW">
+<html lang= lang="zh-TW">
 <head>
-  <meta charset="utf-8">
-  <title>Reveal.js 簡報示範</title>
-  <link rel="stylesheet" href="css/reveal.css">
-  <link rel="stylesheet" href="css/theme/beige.css" id="theme">  
-  
-  <!-- Code syntax highlighting -->
-  <link rel="stylesheet" href="lib/css/zenburn.css">
-  
-  <!--Add support for earlier versions of Internet Explorer -->
-  <!--[if lt IE 9]>
-  <script src="lib/js/html5shiv.js"></script>
-  <![endif]-->
+    <meta charset="utf-8">
+    <title>Reveal.js 簡報示範</title>
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/beige.css" id="theme">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!--Add support for earlier versions of Internet Explorer -->
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
 </head>
 
 <body>
-  <!-- 使用 reveal 與 slides 的 div 將整個簡報包起來 -->
-  <div class="reveal">
-    <div class="slides">
+    <!-- 使用 reveal 與 slides 的 div 將整個簡報包起來 -->
+    <div class="reveal">
+        <div class="slides">
 
-      <!-- 簡報內容開始 -->
+            <!-- 簡報內容開始 -->
+            <!-- 一個 section 表示一頁簡報 -->
+            <section data-markdown="./ppt.md" data-separator="^\n---\n$" data-separator-vertical="^\n--\n$"></section>
 
-      <!-- 一個 section 表示一頁簡報 -->
-      <section>
-        <h1>G.T.Wang</h1>
-        <p>這是 G.T.Wang 的示範簡報</p>
-      </section>
+            <!-- 簡報內容結束 -->
 
-      <!-- 第二頁簡報 -->
-      <section id="show-a-link">
-        <h2>連結示範</h2>
-        <p>這是一個<a href="http://blog.gtwang.org/">測試連結</a></p>
-      </section>
+        </div>
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
 
-      <!-- 第三頁簡報 -->
-      <section>
-        <h2>這是程式碼</h2>
-        <pre><code class="hljs cpp" data-trim contenteditable>
-#include &lt;iostream&gt;
-#define IABS(x) ((x) &lt; 0 ? -(x) : (x))
+    <script>
+        // 啟用 reveal.js
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            history: true,
+            center: true,
 
-int main(int argc, char *argv[]) {
+            transition: 'slide', // none/fade/slide/convex/concave/zoom
 
-  /* An annoying &quot;Hello World&quot; example */
-  for (auto i = 0; i &lt; 0xFFFF; i++)
-    cout &lt;&lt; &quot;Hello, World!&quot; &lt;&lt; endl;
-
-  return -2e3 + 12l;
-}
-        </code></pre>
-      </section>
-
-      <!-- 簡報內容結束 -->
-
-      </div>
-  </div>
-  <script src="lib/js/head.min.js"></script>
-  <script src="js/reveal.js"></script>
-
-  <script>
-    // 啟用 reveal.js
-    Reveal.initialize({
-      controls: true,
-      progress: true,
-      history: true,
-      center: true,
-
-      transition: 'slide', // none/fade/slide/convex/concave/zoom
-
-      // 加入一些 reveal.js 的外掛
-      dependencies: [
-        { src: 'plugin/highlight/highlight.js',
-          async: true, condition: function() {
-            return !!document.querySelector( 'pre code' );
-          }, callback: function() {
-            hljs.initHighlightingOnLoad();
-          }
-        }
-      ]
-    });
-  </script>
+            // 加入一些 reveal.js 的外掛
+            dependencies: [
+              {
+                  src: 'plugin/highlight/highlight.js',
+                  async: true, condition: function () {
+                      return !!document.querySelector('pre code');
+                  }, callback: function () {
+                      hljs.initHighlightingOnLoad();
+                  }
+              }
+            ]
+        });
+        dependencies: [{
+            src: 'plugin/markdown/marked.js',
+            condition: function () {
+                return !!document.querySelector('[data-markdown]');
+            }
+        }, {
+            src: 'plugin/markdown/markdown.js',
+            condition: function () {
+                return !!document.querySelector('[data-markdown]');
+            }
+        }]
+    </script>
 </body>
 </html>
