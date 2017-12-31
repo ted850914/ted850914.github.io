@@ -53,7 +53,18 @@ ex:[大一專題](https://www.facebook.com/groups/1597697557217011/files/)
 
 ## git  v.s  github
 ### 差異
-???
+
+<div class="fragment">
+ 	<p>git是一個版本控制軟體，github是一個商業網站</p>
+</div>
+
+<div class="fragment">
+ 	<p>github的本體為git的server</p>
+</div>
+
+<div class="fragment">
+ 	<p>github的介面提供git需要複雜指令才能完成的事情</p>
+</div>
 
 -----
 
