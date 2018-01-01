@@ -71,13 +71,9 @@
 
 ## 如何安裝 git
 
-<div class="fragment">
-	<a href="https://git-scm.com/download/win">安裝網址</a>
-</div>
+[安裝網址](https://git-scm.com/download/win)
 
-<div class="fragment">
-	<p>安裝過程都直接next</p>
-</div>
+安裝過程都直接next
 
 ----
 
@@ -92,10 +88,10 @@ git version 2.14.1.windows.1
 -----
 
 ## 使用SourceTree作GUI介面
-<a href="https://www.sourcetreeapp.com/">安裝網址</a>
-<div class="fragment">
-	<p>安裝過程一樣直接next</p>
-</div>
+
+[安裝網址](https://www.sourcetreeapp.com/)
+
+安裝過程一樣直接next
 
 -----
 
@@ -279,10 +275,10 @@ $git clone https://github.com/ted850914/ted850914.github.io
 	<p>3. 想再了解更多可參考此PPT，後面還有很多內容</a></p>
 </div>
 <div class="fragment">
-	<p>4. 想再再了解更多可<a href="https://gitbook.tw/">上網查</a></p>
+	<p>4. 想再再了解更多可[上網查](https://gitbook.tw/)</p>
 </div>
 <div class="fragment">
-	<p>5. 此PPT也是使用Git做<a href="https://github.com/ted850914/ted850914.github.io">版本控制</a>並架設在GitHub.io</p>
+	<p>5. 此PPT也是使用Git做[版本控制](https://github.com/ted850914/ted850914.github.io)並架設在GitHub.io</p>
 </div>
 
 ----
