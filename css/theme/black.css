@@ -15,7 +15,7 @@ body {
   background-color: #222; }
 
 .reveal {
-  font-family: "Source Sans Pro", Helvetica, sans-serif;
+  font-family: Microsoft JhengHei;
   font-size: 42px;
   font-weight: normal;
   color: #fff; }
@@ -46,7 +46,7 @@ body {
 .reveal h6 {
   margin: 0 0 20px 0;
   color: #fff;
-  font-family: "Source Sans Pro", Helvetica, sans-serif;
+  font-family: Microsoft JhengHei;
   font-weight: 600;
   line-height: 1.2;
   letter-spacing: normal;
@@ -146,13 +146,13 @@ body {
   margin: 20px auto;
   text-align: left;
   font-size: 0.55em;
-  font-family: monospace;
+  font-family: Microsoft JhengHei;
   line-height: 1.2em;
   word-wrap: break-word;
   box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3); }
 
 .reveal code {
-  font-family: monospace;
+  font-family: Microsoft JhengHei;
   text-transform: none; }
 
 .reveal pre code {

@@ -1,73 +1,73 @@
-## 什麼是 git ?
- "分散式"版本控制系統
-
- 後續補充
-----
-
-## 為什麼要學 git ?
-ex:[大一專題](https://www.facebook.com/groups/1597697557217011/files/)
-<div class="fragment">
- <p>git 類似遊戲打王的S/L大法</p>
-</div>
-
+# Git版本控制
+<br />
+組員：廖祐德、吳珮均、曾永權
 
 -----
 
+## 什麼是 git ?
+分散式版本控制系統
+<img src="https://gitbook.tw/images/introduction/what-is-git/version.png" class="fragment"/>
+ 
+----
 
-## git 的優缺點 ##
-### 優點
+## 為什麼要學 git ?
 <div class="fragment">
- 	<p>1.免費、開源 </p>
+	ex:[大一專題](https://www.facebook.com/groups/1597697557217011/files/)
+</div>
+
+<img src="https://gitbook.tw/images/introduction/what-is-git/how-to-backup.png" height="400" width="300" class="fragment"/>
+
+-----
+
+## github又是什麼？
+
+<div class="fragment">
+ 	<p>GitHub是一個商業網站</p>
 </div>
 
 <div class="fragment">
-	 <p>2.速度快</p>
+ 	<p>GitHub的本體為Git的Server</p>
+</div>
+
+<img src="img/GitHub.png" height="200" width="200" class="fragment"></img>
+
+-----
+
+## git 的優點
+<div class="fragment">
+ 	<p>1.免費、開源</p>
+	<p>[連Git都是用Git作為版本控管軟體](https://github.com/git/git)</p>
 </div>
 
 <div class="fragment">
-	 <p>3.檔案小(只記錄版本間的差異)</p>
+	 <p>2.檔案小、速度快</p>
+	 <p>(只記錄版本間的差異)</p>
 </div>
  
+ 
 <div class="fragment">
-	 <p>4.分散式系統</p>
+	 <p>3.分散式系統</p>
 </div>
 
 ----
 
+## 集中式系統 v.s 分散式系統
 
-## git 的優缺點 ##
-### 缺點
+<img src="img/Centralized.png" height="300" width="400" class="fragment"/>
+<img src="img/Distributed.png" height="300" width="400" class="fragment"/>
+
+----
+
+## git 的缺點
 <div class="fragment">
  	<p>1.易學難精 </p>
 </div>
 
 <div class="fragment">
- 	<p>2.指令式介面比GUI好用，但容易讓人卻步</p>
-</div>
-
-<div class="fragment">
- 	<p>3.沒有動畫</p>
+ 	<p>2.CMD比GUI好用，但容易讓人卻步</p>
 </div>
 
 -----
-
-## git  v.s  github
-### 差異
-
-<div class="fragment">
- 	<p>git是一個版本控制軟體，github是一個商業網站</p>
-</div>
-
-<div class="fragment">
- 	<p>github的本體為git的server</p>
-</div>
-
-<div class="fragment">
- 	<p>github的介面提供git需要複雜指令才能完成的事情</p>
-</div>
-
------
-
 
 ## 如何安裝 git
 
@@ -91,6 +91,14 @@ git version 2.14.1.windows.1
 
 -----
 
+## 使用SourceTree作GUI介面
+<a href="https://www.sourcetreeapp.com/">安裝網址</a>
+<div class="fragment">
+	<p>安裝過程一樣直接next</p>
+</div>
+
+-----
+
 ## 指令介紹
 
 ----
@@ -106,7 +114,7 @@ $cd desktop/test
 
 ## 初始化
 
-初始化目錄，使git開始版本控制
+使該目錄開始進行Git版本控制
 ```
 $git init
 ```
@@ -115,13 +123,13 @@ $git init
 
 ## 移除控制
 
-刪除 .git　資料夾
+刪除.git資料夾
 
-任何東西都救得回來，但.git被刪了就沒辦法
+<p style="color:red">任何東西都救得回來，但.git被刪了就沒辦法</p>
 
 ----
 
-## 狀態
+## 顯示目前狀態
 
 顯示未被追蹤、被追蹤的檔案名稱
 
@@ -137,28 +145,23 @@ $git status
 
 --all:把所有改變的檔案加入暫存
 
-git add(*html, --all,...)
-
 ```
-$git add ptt.html
+$git add <檔名>
+$git add index.html
 $git add --all
+$git add *.html
 ```
 
 ----
 
 ## 把暫存區裡的檔案存檔
 
-將暫存區的檔案永久存檔
+將暫存區的檔案存到儲存庫
 
-git commit -m ""
-
-""內輸入文字說明這次改變了甚麼東西
-
-說明要具體，例如修bug，不要輸入"bug fixed"
-
-"line 38~52 bug fixed"這樣比較好
+" "內輸入文字說明這次改變了甚麼東西
 
 ``` 
+$git commit -m "<訊息>"
 $git commit -m "line 38~52 bug fixed"
 ```
 
@@ -166,15 +169,129 @@ $git commit -m "line 38~52 bug fixed"
 
 ## git 的三個區塊
 
-<a href="https://gitbook.tw/images/using-git/working-staging-and-repository/all-states.png">圖片</a>
+<img src="https://gitbook.tw/images/using-git/working-staging-and-repository/all-states.png" height="500" width="700"></img>
+<img src="img/commit_example.png" height="200" width="200"></img>
 
 ----
 
 ## 何時要 commit?
 
-1. 完成了一個任務
-1. 工作告一段落(下班、休息)
-1. 你想要的時候
+<div class="fragment">
+	<p>1. 完成了一個任務</p>
+</div>
+<div class="fragment">
+	<p>2. 工作告一段落(下班、休息)</p>
+</div>
+<div class="fragment">
+	<p>3. 你想要的時候</p>
+</div>
+
+----
+
+## commit後面的亂碼？
+
+<div class="fragment">
+	<p>1. 類似每個Commit的身分證</p>
+</div>
+<div class="fragment">
+	<p>2. 使用SHA-1算出來的</p>
+</div>
+
+----
+
+## 分支
+
+```
+$git branch <分支名>
+$git branch duck
+```
+
+----
+
+## 切換分支/過去commit
+
+```
+$git checkout <分支名>
+$git checkout duck
+==================================================
+$git checkout <commit的SHA-1碼>
+$git checkout ea6fdd0
+```
+
+----
+
+## 合併分支
+
+```
+$git merge <分支名>
+```
+
+----
+
+## 合併時遇到同樣檔名怎麼辦？
+
+<div class="fragment">
+	<p>Git可以檢查簡單的衝突</p>
+
+	<p>所以不是改到同一個檔案就一定會發生衝突</p>
+</div>
+
+<div class="fragment">
+	<p>但改到同一行程式碼就要人工處理</p>
+
+	<p>(改完後要add+commit)</p>
+</div>
+
+----
+
+## 推上GitHub
+
+先設定好指向"網址"的"名稱"
+再Push到該網址
+
+```
+$git remote add <名稱> <網址> (將該"名稱"指向該"網址")
+$git remote add origin https://github.com/ted850914/ted850914.github.io
+==================================================
+$git push origin master (將master分支push到origin)
+```
+
+----
+
+## 將專案下載下來
+
+```
+$git clone <網址>
+$git clone https://github.com/ted850914/ted850914.github.io
+```
+
+-----
+
+## 最後
+
+<div class="fragment">
+	<p>1. 恭喜你學會了基本的指令！</p>
+</div>
+<div class="fragment">
+	<p>2. 但Git的功能和指令還有非常非常多...</p>
+</div>
+<div class="fragment">
+	<p>3. 想再了解更多可參考此PPT，後面還有很多內容</a></p>
+</div>
+<div class="fragment">
+	<p>4. 想再再了解更多可<a href="https://gitbook.tw/">上網查</a></p>
+</div>
+<div class="fragment">
+	<p>5. 此PPT也是使用Git做<a href="https://github.com/ted850914/ted850914.github.io">版本控制</a>並架設在GitHub.io</p>
+</div>
+
+----
+
+# Q&A
+
+-----
+
+# 額外補充
 
 ----
 
@@ -194,7 +311,7 @@ $git log --oneline
 
 ## 移除檔案
 
-git rm (--cached,*.txt)
+$git rm (--cached,*.txt)
 
 --cached:只是讓git不再控管這個檔案，並非刪除
 
@@ -225,12 +342,30 @@ $git commit --amend -m "restore commit msg"
 
 ## 回復到先前版本
 
-git reset e12d8ef^:回復到e12d8ef的前一版本
+$git reset e12d8ef^:回復到e12d8ef的前一版本
 
-git reset e12d8ef~3:回復到e12d8ef的前三版本
+$git reset e12d8ef~3:回復到e12d8ef的前三版本
 
 e12d8ef:每個版本的編號，可用 git log --oneline查看
 
 ```
 $git reset e12d8ef~3
 ```
+
+----
+
+## A合併B 跟 B合併A 的差別？
+
+基本上沒什麼差，只是誰在前面的不同
+<img src="https://gitbook.tw/images/branch/merge-branch/merge-branch3.png" height="400" width="600"></img>
+
+----
+
+<img src="https://gitbook.tw/images/branch/merge-branch/merge-branch4.png" height="350" width="450"></img>
+&nbsp;
+<img src="https://gitbook.tw/images/branch/merge-branch/merge-branch5.png" height="350" width="450"></img>
+<br />
+$git checkout cat &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $git checkout dog
+<br />
+$git merge dog &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $git merge cat
+
