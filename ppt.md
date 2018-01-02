@@ -15,8 +15,6 @@
 	ex:[大一專題](https://www.facebook.com/groups/1597697557217011/files/)
 </div>
 
-<img src="https://gitbook.tw/images/introduction/what-is-git/how-to-backup.png" height="400" width="300" class="fragment"/>
-
 -----
 
 ## github又是什麼？
@@ -101,7 +99,7 @@ git version 2.14.1.windows.1
 
 ## 切換目錄 
 
-切換到指定目錄 cd ./~
+切換到你想要進行版本控管的目錄下
 ```
 $cd desktop/test
 ```
@@ -117,11 +115,11 @@ $git init
 
 ----
 
-## 移除控制
+## 如果不想要再給Git控制了？
 
 刪除.git資料夾
 
-<p style="color:red">任何東西都救得回來，但.git被刪了就沒辦法</p>
+<p style="color:red" class="fragment">任何東西都救得回來，但.git被刪了就沒辦法</p>
 
 ----
 
@@ -135,17 +133,20 @@ $git status
 
 ----
 
+## git 的三個區塊
+
+<img src="https://gitbook.tw/images/using-git/working-staging-and-repository/all-states.png" height="500" width="700"></img>
+<img src="img/commit_example.png" height="200" width="200"></img>
+
+----
 ## 加入暫存區
 
-把指定的檔案加入暫存
-
---all:把所有改變的檔案加入暫存
+把指定的檔案加入暫存區
 
 ```
 $git add <檔名>
 $git add index.html
-$git add --all
-$git add *.html
+$git add --all (把所有改變的檔案加入暫存區)
 ```
 
 ----
@@ -163,38 +164,6 @@ $git commit -m "line 38~52 bug fixed"
 
 ----
 
-## git 的三個區塊
-
-<img src="https://gitbook.tw/images/using-git/working-staging-and-repository/all-states.png" height="500" width="700"></img>
-<img src="img/commit_example.png" height="200" width="200"></img>
-
-----
-
-## 何時要 commit?
-
-<div class="fragment">
-	<p>1. 完成了一個任務</p>
-</div>
-<div class="fragment">
-	<p>2. 工作告一段落(下班、休息)</p>
-</div>
-<div class="fragment">
-	<p>3. 你想要的時候</p>
-</div>
-
-----
-
-## commit後面的亂碼？
-
-<div class="fragment">
-	<p>1. 類似每個Commit的身分證</p>
-</div>
-<div class="fragment">
-	<p>2. 使用SHA-1算出來的</p>
-</div>
-
-----
-
 ## 分支
 
 ```
@@ -209,9 +178,6 @@ $git branch duck
 ```
 $git checkout <分支名>
 $git checkout duck
-==================================================
-$git checkout <commit的SHA-1碼>
-$git checkout ea6fdd0
 ```
 
 ----
@@ -224,32 +190,21 @@ $git merge <分支名>
 
 ----
 
-## 合併時遇到同樣檔名怎麼辦？
+#### 兩個分支都改到了同一行程式碼怎麼辦？
 
 <div class="fragment">
-	<p>Git可以檢查簡單的衝突</p>
-
-	<p>所以不是改到同一個檔案就一定會發生衝突</p>
-</div>
-
-<div class="fragment">
-	<p>但改到同一行程式碼就要人工處理</p>
-
-	<p>(改完後要add+commit)</p>
+	<p>人工處理</p>
 </div>
 
 ----
 
 ## 推上GitHub
 
-先設定好指向"網址"的"名稱"
-再Push到該網址
+把所有Commit都放上GitHub
 
 ```
-$git remote add <名稱> <網址> (將該"名稱"指向該"網址")
-$git remote add origin https://github.com/ted850914/ted850914.github.io
-==================================================
-$git push origin master (將master分支push到origin)
+$git push <網址> <分支> (將該分支推向該網址)
+$git push https://github.com/ted850914/SE_Present master
 ```
 
 ----
@@ -258,7 +213,7 @@ $git push origin master (將master分支push到origin)
 
 ```
 $git clone <網址>
-$git clone https://github.com/ted850914/ted850914.github.io
+$git clone https://github.com/ted850914/SE_Present
 ```
 
 -----
@@ -275,11 +230,24 @@ $git clone https://github.com/ted850914/ted850914.github.io
 	<p>3. 想再了解更多可參考此PPT，後面還有很多內容</a></p>
 </div>
 <div class="fragment">
-	<p>4. 想再再了解更多可[上網查](https://gitbook.tw/)</p>
+	<p>4. 此PPT也是使用Git做[版本控制](https://github.com/ted850914/ted850914.github.io) 並使用GitHub.io快速建立靜態網站</p>
 </div>
-<div class="fragment">
-	<p>5. 此PPT也是使用Git做[版本控制](https://github.com/ted850914/ted850914.github.io)並架設在GitHub.io</p>
-</div>
+
+----
+
+## 分工
+
+曾永權：PPT初版
+
+廖祐德：資料蒐集、PPT二版
+
+吳珮均：PPT內容精簡化
+
+----
+
+## 參考資料
+
+[為你自己學Git](https://gitbook.tw/)
 
 ----
 
@@ -336,6 +304,28 @@ $git commit --amend -m "restore commit msg"
 
 ----
 
+## 何時要 commit?
+
+<div class="fragment">
+	<p>1. 完成了一個任務</p>
+</div>
+<div class="fragment">
+	<p>2. 工作告一段落(下班、休息)</p>
+</div>
+<div class="fragment">
+	<p>3. 你想要的時候</p>
+</div>
+
+----
+
+## commit後面的亂碼？
+
+<div class="fragment">
+	<p>類似每個Commit的身分證</p>
+</div>
+
+----
+
 ## 回復到先前版本
 
 $git reset e12d8ef^:回復到e12d8ef的前一版本
@@ -364,4 +354,8 @@ $git reset e12d8ef~3
 $git checkout cat &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $git checkout dog
 <br />
 $git merge dog &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $git merge cat
+
+----
+
+想了解更多請看[此網站](https://gitbook.tw/)
 
