@@ -173,7 +173,7 @@ $git branch duck
 
 ----
 
-## 切換分支/過去commit
+## 切換分支
 
 ```
 $git checkout <分支名>
