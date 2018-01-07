@@ -3,36 +3,41 @@
 組員：廖祐德、吳珮均、曾永權、周郁祥
 
 -----
-### Lightweight Authentication Protocol for Internet of Things
-### 輕量級IOT協定
+### 題目一
+<p>Lightweight Authentication Protocol for Internet of Things</p>
+### IOT輕量級協定
 
 ----
 
-### 何謂輕量級協定
+### 什麼是輕量級協定？
 <div class="fragment">
-	<p>所謂輕量級，是指通信協議與語言、平台無關。</p>
+	<p>假設今天一個節點要認證需要花1毫秒</p>
+</div>
+<div class="fragment">
+	<p>那一千個節點就需要1秒</p>
+</div>
+<div class="fragment">
+	<p>那一千萬個節點就需要1000秒</p>
+</div>
+<div class="fragment">
+	<p>所以要縮短驗證的時間->將協定輕量化</p>
 </div>
 
 ----
 
-### 物聯網系統中重要的協議
+### 物聯網系統中重要的輕量級協定
 <div class="fragment">
-	<p>MQTT &nbsp;&nbsp; COAP&nbsp;&nbsp;AMQP&nbsp;&nbsp; Rest&nbsp;&nbsp; XMPP&nbsp;&nbsp; Stomp</p>
+	<p>MQTT &nbsp;&nbsp; COAP&nbsp;&nbsp; AMQP&nbsp;&nbsp; Stomp</p>
 </div>
-
 <div class="fragment">
-	<p>除了XMPP 其他皆是輕量級的協定</p>
+	<p>還有非常非常多，在這裡只介紹MQTT和CoAP</p>
 </div>
 
 -----
 
-### 什麼是MQTT?
+### 什麼是MQTT？
 <div class="fragment">
-	<p>全名為　Message Queuing Telemetry Transport</p>
-</div>
-
-<div class="fragment">
-	<p>為了物聯網而設計的protocol</p>
+	<p>全名為 Message Queuing Telemetry Transport</p>
 </div>
 
 <div class="fragment">
@@ -40,7 +45,7 @@
 </div>
 
 <div class="fragment">
-	<p>類似twitter的發布訂閱機制</p>
+	<p>類似twitter、youtube的發布訂閱機制</p>
 </div>
 
 ----
@@ -52,11 +57,8 @@
 </div>
 
 <div class="fragment">
-	<p> Publisher為訊息的來源，它會將訊息發送給Topic<br>
-	Subscriber向Topic註冊，表示想接收此Topic訊息</p>
-</div>
-
-<div class="fragment">
+	<p>Publisher為訊息的來源，它會將訊息發送給Topic</p>
+	<p>Subscriber向Topic註冊，表示想接收此Topic訊息</p>
 	<img src="https://goo.gl/Ja2yd7">
 </div>
 
@@ -68,32 +70,41 @@
 </div>
 
 <div class="fragment">
-	<p>使用TCP/IP提供網路連接</p>
+	<p>底層走TCP</p>
 </div>
 
 <div class="fragment">
-	<p>header固定長度為2byte，可減少封包傳送負載</p>
+	<p>header固定長度為2 bytes，可減少封包傳送負載</p>
 </div>
+
+<div class="fragment">
+	<p>可以留下"最後遺言"，通知訂閱者用戶端與 MQTT 伺服器的連線異常中斷</p>
+</div>
+
+----
+
+### MQTT 協定格式
+<img src="http://designer.mech.yzu.edu.tw/articlesystem/article/compressedfile/(2016-07-15)%20%E7%AC%AC%E4%B8%89%E7%AB%A0%20MQTT%E9%80%9A%E8%A8%8A%E5%8D%94%E8%AD%B0.files/image003.png">
+<p class="fragment">Fix Header：固定的2 byte</p>
+<p class="fragment">Variable Header：參數設置</p>
+<p class="fragment">Payload：訊息主要的內容，可以帶入字串訊息、圖片、影片等類型檔案</p>
 
 ----
 
 ### 三種訊息傳送方式
 
 <div class="fragment">
-	<p>At most once <br>
-       最多一次，訊息可能會遺失
-	</p>
+	<p>最多一次，但訊息可能會遺失</p>
 </div>
 
 <div class="fragment">
-	<p>At least once<br>
-	   至少一次，保證訊息送達，只是可能重複傳送</p>
+	<p>至少一次，保證訊息送達，只是可能重複傳送</p>
 </div>
 
 <div class="fragment">
-	<p>Exactly once<br>
-	   確定一次，重複收到資料或資料遺失會造成系統錯誤</p>
+	 <p>確定一次，重複收到資料或資料遺失會造成系統錯誤</p>
 </div>
+
 ----
 
 ### MQTT的現況
@@ -111,7 +122,11 @@
 </div>
 
 <div class="fragment">
-	<p>知名應用:Facebook Message App</p>
+	<p>低頻寬、低硬體需求的特性，使得MQTT十分適合在手機上做應用</p>
+</div>
+
+<div class="fragment">
+	<p>知名應用：Facebook messenger App</p>
 </div>
 
 -----
@@ -119,39 +134,15 @@
 ### 什麼是CoAP?
 
 <div class="fragment">
-	<p>全名為 The Constrained Application Protocol</p>
+	<p>全名為 Constrained Application Protocol</p>
 </div>
 
 <div class="fragment">
-	<p>已是IETF標準</p>
-</div>
-
-<div class="fragment">
-	<p>屬於輕量版的HTTP/UDP，有利於感測節點進行網路傳輸</p>
+	<p>使用 client/server 架構，底層走UDP</p>
 </div>
 
 ----
 ### COAP的特點
-
-<div class="fragment">
-	<p>Client/Server架構</p>
-</div>
-
-<div class="fragment">
-	<p>多半為CoAP Server提供資源，由CoAP Client請求讀取/控制資源狀態</p>
-</div>
-
-<div class="fragment">
-	<p>使用UDP，是否重新傳送由應用層決定</p>
-</div>
-
-----
-
-### COAP的封包
-
-<div class="fragment">
-	<p>採用二進位整數格式</p>
-</div>
 
 <div class="fragment">
 	<p>封包標頭4個byte而非HTTP使用字串格式</p>
@@ -163,33 +154,62 @@
 
 ----
 
-### COAP QOS
+### COAP 協定格式
+
+<p class="fragment" style="font-size:35px">Version：版本號碼。</p>
+<p class="fragment" style="font-size:35px">Message Type：CON，NON，ACK，RST。</p>
+<p class="fragment" style="font-size:35px">Message ID：每個CoAP訊息都有一個ID，在一次Session中ID總是保持不變。但在這個Session之後該ID會被回收利用。</p>
+<p class="fragment" style="font-size:35px">Options：包括CoAP Port，CoAP主機和CoAP查詢字符串等。</p>
+<p class="fragment" style="font-size:35px">Payload：要傳遞的資訊。</p>
+
+----
+
+### Message Type
 
 <div class="fragment">
-	<p>訊息分為Confirmable或Non-Confirmable</p>
+	<p>CON：Confirmable或Non-Confirmable</p>
+	<p>要求接收端傳回ACK，若沒收到則重送一次</p>
 </div>
-
+<br />
 <div class="fragment">
-	<p>前者要求接收端傳回ack，若沒收到則重送一次</p>
-</div>
-
-<div class="fragment">
-	<p>後者不在乎接收端是否有收到</p>
+	<p>NON：Non-Confirmable</p>
+	<p>不在乎接收端是否收到</p>
 </div>
 
 -----
 
-### CoAP  &nbsp; vs &nbsp; MQTT &nbsp; 比較
+### MQTT  &nbsp; vs &nbsp; CoAP
 
 <div class="fragment">
-	<p>都是公開標準且都是基於IP層的協定</p>
+	<p>MQTT是走TCP，CoAP是走UDP</p>
 </div>
 
 <div class="fragment">
-	<p>封包標頭小且採用binary格式</p>
+	<p>MQTT是多對多，CoAP是一對一通訊</p>
 </div>
 
 <div class="fragment">
-	<p>CoAP屬於一對一通訊，MQTT則是多對多 </p>
+	<p>MQTT封包Header為2Byte，CoAP封包Header為4Byte</p>
 </div>
 
+-----
+
+### 題目二
+<p>Perform public-key distribution scenario described</p>
+
+----
+
+<img src="img/KDC.jpg">
+
+----
+
+## DEMO
+
+-----
+
+### 參考資料
+
+<p>http://3smarket-info.blogspot.tw/2017/05/iot-mqtt-coap.html</p>
+<p>https://www.ithome.com.tw/voice/92179</p>
+<p>https://kknews.cc/zh-tw/tech/kam6aev.html</p>
+<p>https://goo.gl/vN9hdh</p>
