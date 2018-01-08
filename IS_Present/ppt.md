@@ -201,7 +201,7 @@
 -----
 
 ### 題目二
-<p>Perform public-key distribution scenario described</p>
+<p>Perform public-key distribution scenario</p>
 
 ----
 
