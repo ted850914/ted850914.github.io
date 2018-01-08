@@ -35,7 +35,7 @@
 
 -----
 
-### 什麼是MQTT？
+### MQTT
 <div class="fragment">
 	<p>全名為 Message Queuing Telemetry Transport</p>
 </div>
@@ -45,7 +45,7 @@
 </div>
 
 <div class="fragment">
-	<p>類似twitter、youtube的發布訂閱機制</p>
+	<p>類似Twitter、Youtube的發布訂閱機制</p>
 </div>
 
 ----
@@ -65,8 +65,9 @@
 ----
 
 ### MQTT的特性
+
 <div class="fragment">
-	<p>提供一對多的訊息分配</p>
+	<p>header固定長度為2 bytes，使用Binary格式</p>
 </div>
 
 <div class="fragment">
@@ -74,11 +75,11 @@
 </div>
 
 <div class="fragment">
-	<p>header固定長度為2 bytes，可減少封包傳送負載</p>
+	<p>提供一對多的訊息分配</p>
 </div>
 
 <div class="fragment">
-	<p>可以留下"最後遺言"，通知訂閱者用戶端與 MQTT 伺服器的連線異常中斷</p>
+	<p>可以留下"最後遺囑"，通知訂閱者用戶端與 MQTT 伺服器的連線異常中斷</p>
 </div>
 
 ----
@@ -131,25 +132,30 @@
 
 -----
 
-### 什麼是CoAP?
+### CoAP
 
 <div class="fragment">
 	<p>全名為 Constrained Application Protocol</p>
 </div>
 
 <div class="fragment">
-	<p>使用 client/server 架構，底層走UDP</p>
+	<p>使用 client/server 架構</p>
 </div>
 
 ----
+
 ### COAP的特點
 
 <div class="fragment">
-	<p>封包標頭4個byte而非HTTP使用字串格式</p>
+	<p>封包標頭4個byte，使用Binary格式</p>
 </div>
 
 <div class="fragment">
-	<p>傳送時負擔小，且不必耗時解析字串</p>
+	<p>底層走UDP</p>
+</div>
+
+<div class="fragment">
+	<p>支援觀察模式</p>
 </div>
 
 ----
