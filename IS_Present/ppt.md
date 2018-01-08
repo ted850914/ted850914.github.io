@@ -213,6 +213,15 @@
 
 -----
 
+### 分工
+
+廖祐德：PPT二版、題目二程式碼
+曾永權：PPT初版
+吳珮均：資料蒐集
+周郁祥：Word
+
+----
+
 ### 參考資料
 
 <p>http://3smarket-info.blogspot.tw/2017/05/iot-mqtt-coap.html</p>
