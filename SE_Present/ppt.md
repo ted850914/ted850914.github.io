@@ -255,6 +255,49 @@ $git clone https://github.com/ted850914/SE_Present
 
 -----
 
+# Q&A補充
+
+----
+
+<p>1. 只能把檔案上傳到GitHub上面嗎？</p>
+
+<br />
+
+<p>A: 不是，GitHub只是一個免費讓大家上傳的Server</p>
+<p>所以也可以自己架一個Git Server給自己或團隊使用</p>
+
+----
+
+<p>2. Git會把所有檔案都存進去嗎？</p>
+
+<br />
+
+<p style="font-size:30px;">A: Git只有在第一次commit的時候會把所有檔案儲存</p>
+<p style="font-size:30px;">之後的commit是會存與上一次的commit之間的差別</p>
+
+<br />
+
+<p style="font-size:30px;">Example: 若上一次commit有1個10000行的程式碼檔案</p>
+<p style="font-size:30px;">而你只改了其中1行後再commit，Git只會存你改的那一行</p>
+<p style="font-size:30px;">而不是把整個10000行程式碼都儲存在這次的commit中</p>
+
+----
+
+<p>3. 為甚麼推薦使用CMD而不是GUI？</p>
+
+<br />
+
+<p style="font-size:30px;">A: 使用CMD可以知道系統處理的細節</p>
+<p style="font-size:30px;">對於觀念的建立很有幫助</p>
+
+<br style="font-size:30px;"/>
+
+<p style="font-size:30px;">若要處理複雜的進階操作，GUI會無法做到</p>
+
+<p style="font-size:30px;">Example: 解決衝突，單一檔案歷史異動追蹤...等</p>
+
+-----
+
 # 額外補充
 
 ----
