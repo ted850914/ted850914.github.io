@@ -7,4 +7,4 @@
 1. [NCYU競程讀書會](./#/1/1)
 
 ----
-1. [Week1 打比賽的小細節&質數Prime](./2018/NCYU_Programming)
+1. [Week1 打比賽的小細節&質數Prime](./2018/NCYU_Programming_Week1)
