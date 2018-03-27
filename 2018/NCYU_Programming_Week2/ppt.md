@@ -1,309 +1,261 @@
-### 競程讀書會Week1
-#### 打比賽的小技巧&質數Prime
-
-----
-
-## Warning!!
-
-演算法概念>>>>>程式設計
-
-程式撰寫能力請自行修練(多寫題目)
-
-----
-
-真的不會的時候看網路上的Code是很好的練習方法
-
-但請在看完理解後自己寫一遍
-
-不要Copy/Paste
-
-----
-
-讀書會大致方向：
-
-講解演算法概念 -> 一起寫題目 -> 一起討論
-
-碰到任何程式問題都可以丟到讀書會社團上
-
-----
-
-未來狀況好的話可能會辦小比賽(~~跟賴媽要贊助~~)
-
-----
-
-# Q&A
+### 競程讀書會Week2
+## DFS & BFS
 
 -----
 
-### 打比賽的小技巧
+## 前情提要-資料結構
+
+Stack
+
+Queue
 
 -----
 
-#### 1. 打比賽常吃TLE RE??
-![TLE_RE](./img/TLE_RE.png)
+## Stack
+
+像是疊盤子，先進後出
+
+![Stack](./img/stack.png)
 
 ----
 
-RE通常是用到了陣列未宣告的地方
-
-請把陣列開大一點
-
-並確認有沒有用到陣列外
-
-題目：n<=1000
-```
-int table[1000];
-table[n]=1;
-```
-
-----
-
-跑10^9次指令 約等於 1秒
-
-所以迴圈若跑10^8就要注意可能會TLE
-
-![TLE](./img/TLE2.png)
-
-----
-
-在寫題目之前先確定用的演算法會不會TLE
-
-----
+## STL
 
 Example：
-
-有n個數字要sort(n<100000)
-
-使用Bubble Sort-> 時間複雜度為O(N^2)
-
-直接考慮最糟情況->100000*100000 = 10^10
-
-TLE
-
------
-
-#### 2. 題目要我開1000*1000的陣列
-
-<div class="fragment">
-	那我就開在main裡面
-</div>
-
-<div class="fragment">
-	![Boom](./img/Computer_Boom.png)
-</div>
-
-----
-
-A: 請開成全域變數，並搭配memset做初始化
-
-![memset](./img/memset.png)
-
------
-
-#### 3. 看到這些數字要小心overflow
-
-2^31
-
-10^10
-
-2147483647 <- 多念幾次背起來
-
-----
-
-A: 請把int全部改long long，不用省記憶體
-
------
-
-有想到其他細節再跟大家分享
-
-----
-
-# Q&A
-
------
-
-### 質數Prime
-
------
-
-### 質數的定義
-
-一個數字除了1以及本身沒有其他因數
-
-有些題目會把1也當成質數
-
------
-
-### 題目：
-
-給你n個數字(n<=100000)，每個數字p大小為2~1000000007(約10^9)，請判斷哪些數字是質數
-
------
-
-#### 1. 直接判斷從2~P-1的整數有沒有的因數
 ```
-bool prime(int p){
-	for(int i=2;i<p-1;i++){
-		if(p%i==0){
-			return false;
-		}
-	}
-	return true;
-}
+#include<stack>
+stack<int> s;
+s.push(1);		//把1推進stack中
+s.push(2);		//把2推進stack中
+s.top();		//回傳stack頂端的值
+s.pop();		//移除stack頂端的值 它不會回傳任何東西!!
 ```
-<div class="fragment">
-	慢，但最省記憶體
-</div>
 
 ----
 
-以題目來分析，若使用此方法
+## 小細節
 
-若題目給的100000個數字都是1000000007(此數是質數)
+在使用s.top()前一定要先確認s.empty()==false
 
-這樣大概會跑10^5 * 10^9 = 10^14，肯定吃TLE
+不然會整組壞掉
+
+----
+
+想了解更多請上http://www.cplusplus.com/reference/stack/stack/
 
 -----
 
-#### 2. 判斷從2~(根號p)+1的整數有沒有n的因數
-```
-bool prime(int p){
-	for(int i=2;i<sqrt(p)+1;i++){
-		if(p%i==0){
-			return false;
-		}
-	}
-	return true;
-}
-```
-<div class="fragment">
-	次慢，但也很省記憶體
-</div>
+## Queue
+
+像是排隊，先進先出
+
+![Queue](./img/queue.png)
 
 ----
 
-#### 為甚麼判斷到(根號p)+1就可以了？
-
-<div class="fragment">
-	因數一定是由一大一小去配對的(也有可能相等)
-</div>
-
-<div class="fragment">
-	舉例：36
-</div>
+## STL
+```
+#include<queue>
+queue<int> q;
+q.push(1);		//把1推進queue中
+q.push(2);		//把2推進queue中
+q.front();		//回傳queue最前面的值
+q.back();		//回傳queue最後面的值
+q.pop();		//移除queue最前面的值 它不會回傳任何東西!!
+```
 
 ----
 
-以題目來分析，一樣設想最糟情況
+## 小細節
 
-大概會跑10^5 * sqrt(10^9)(約為31623) = 10^9以上，TLE
+在使用q.front()和q.back()前一定要先確認q.empty()==false
+
+不然會WA(不會整組壞掉)
+
+----
+
+想了解更多請上http://www.cplusplus.com/reference/queue/queue/
+
+----
+
+## Q&A
 
 -----
 
-#### 3. 建質數表_普通法
+## DFS Depth-First Search
 
-先預設陣列index 0為2
+深度優先搜尋演算法
 
-| index | 0 |
-| ----- | - |
-| value | 2 |
+![dfs](./img/dfs.gif)
 
-----
-
-再來判斷數字3，陣列沒有3的因數，因此3是質數，加進陣列中
-
-| index | 0 | 1 |
-| ----- | - | - |
-| value | 2 | 3 |
-
-----
-
-再來判斷數字4，因為陣列裡面2是4的因數(4%2==0)，所以4不是因數
-
-| index | 0 | 1 |
-| ----- | - | - |
-| value | 2 | 3 |
-
-----
-
-再來判斷數字5，陣列沒有5的因數，因此5是質數，加進陣列中
-
-| index | 0 | 1 | 2 |
-| ----- | - | - | - |
-| value | 2 | 3 | 5 |
-
-----
-
-以題目來分析
-
-若從2~建表到sqrt(10^9)(約為31623)的話
-
-實際測試大概會運算10^7次左右，可能會TLE，建議不要用
-
------
-
-#### 4.建質數表_篩法(sieve method)
-
-使用一個bool陣列，用來儲存是不是質數的狀態
-全部預設為true(除了0跟1)
-
-| index | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |
-| ----- | - | - | - | - | - | - | - | - | - | - | -  |
-| value | 0 | 0 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1  |
-
-----
-
-從2開始，因為值是true，因此將2的倍數全部改成false
-
-| index | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |
-| ----- | - | - | - | - | - | - | - | - | - | - | -  |
-| value | 0 | 0 | 1 | 1 | 0 | 1 | 0 | 1 | 0 | 1 | 0  |
-
-----
-
-跑到3，因為值是true，因此將3的倍數全部改成false
-
-| index | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |
-| ----- | - | - | - | - | - | - | - | - | - | - | -  |
-| value | 0 | 0 | 1 | 1 | 0 | 1 | 0 | 1 | 0 | 0 | 0  |
-
-----
-
-跑到4，因為值是false，不做任何事情
-
-| index | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |
-| ----- | - | - | - | - | - | - | - | - | - | - | -  |
-| value | 0 | 0 | 1 | 1 | 0 | 1 | 0 | 1 | 0 | 0 | 0  |
-
-----
-
-跑到5，因為值是true，因此將5的倍數全部改成false
-
-| index | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |
-| ----- | - | - | - | - | - | - | - | - | - | - | -  |
-| value | 0 | 0 | 1 | 1 | 0 | 1 | 0 | 1 | 0 | 0 | 0  |
-
-----
-
-以題目來分析
-
-從2篩到sqrt(10^9)(約為31623)，大約會運算10^5次，非常快
-
-時間複雜度為O(NlogN)
-
-缺點是範圍有限
+<div class="fragment">
+	以stack當資料結構基底，可以利用遞迴實作
+</div>
 
 ----
 
 程式碼大概會長這樣：
 
-![example](./img/example.png)
+```
+void dfs(Node x){
+	if(x==空的){
+		return;
+	}
+	dfs(x.left);
+	dfs(x.mid);
+	dfs(x.right);
+}
+```
+
+----
+
+如果今天題目是：
+給一張無向圖有n個點，設定兩個點S、T，用DFS判斷S是否能走到T
+![dfs_matrix](./img/dfs_matrix.png)
+
+----
+
+程式碼大概會長這樣：
+```
+void dfs(int x){
+	if(x==終點){
+		//設定ans==true
+		return;
+	}
+	for(int i=0;i<n;i++){
+		if(connect[x][i]){
+			dfs(i);
+		}
+	}
+}
+```
+<div class="fragment">
+	有一個嚴重的BUG!!
+</div>
+
+----
+
+## 嚴重的BUG
+A和B會一直來回跑 -> TLE
+
+![dfs_matrix](./img/dfs_matrix.png)
+
+----
+
+## 改良後的程式碼
+```
+void dfs(int x){
+	if(x==終點){
+		//設定ans==true
+		return;
+	}
+	for(int i=0;i<n;i++){
+		if(connect[x][i] && !visit[i]){
+			visit[i]=true;
+			dfs(i);
+			visit[i]=false;
+		}
+	}
+}
+```
+
+----
+
+## Q&A
 
 -----
 
-### 題目練習
+## BFS Breadth-First Search
+廣度優先搜尋演算法
 
-闖關題UVA583、進階題UVA294
+![bfs](./img/bfs.gif)
+
+<div class="fragment">
+	以queue為資料結構基底，用遞迴難以實作
+</div>
+
+----
+
+程式碼大概長這樣：
+```
+queue<int> q;
+q.push(1);
+visit[1]=true;
+void bfs(){
+	while(!q.empty()){
+		int now=q.front();
+		q.pop();
+		for(int i=1;i<=n;i++){
+			if(connect[now][i] && !visit[i]){
+				visit[i]=true;
+				q.push(i);
+			}
+		}
+	}
+}
+```
+
+----
+
+## Q&A
+
+-----
+
+## DFS vs BFS
+
+![dfsbfs](./img/dfsbfs.gif)
+
+----
+
+## DFS vs BFS
+
+時間複雜度：使用鄰接矩陣時皆為O(n^2)
+
+空間複雜度：使用鄰接矩陣時皆為O(n^2)
+
+----
+
+## DFS vs BFS
+
+使用時機：
+
+DFS:當答案必須要遍歷所有可能性到樹的最下方時
+
+BFS:當答案在中途就能找到時
+
+-----
+
+## 判斷練習
+
+----
+
+## 老鼠找食物
+
+列出老鼠到每一個食物的最小步數
+
+![mouse](./img/mouse.png)
+
+<div class="fragment">
+	使用BFS較佳
+</div>
+
+----
+
+## 八皇后問題
+
+如何在一個n*n的棋盤上放置n個皇后而不互相看到(只需求出一種解法)
+
+![queen](./img/queen.jpg)
+
+<div class="fragment">
+	使用DFS較佳
+</div>
+
+-----
+
+## 題目練習
+
+UVA167、UVA10653、UVA10608
 
 寫完的人可以將程式碼上傳至下面網址供大家參考
 
@@ -311,4 +263,4 @@ bool prime(int p){
 
 Example：UVA583-廖祐德.cpp
 
-https://drive.google.com/drive/folders/1EI2kBxxoYb6VNSm25sIr5SqOuYO-XMKR?usp=sharing
+https://drive.google.com/drive/folders/1EI2kBxxoYb6VNSm25sIr5SqOuYO-XMKR
