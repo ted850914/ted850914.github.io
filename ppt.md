@@ -10,3 +10,4 @@
 1. [Week1 打比賽的小細節&質數Prime](./2018/NCYU_Programming_Week1)
 1. [Week2 DFS&BFS](./2018/NCYU_Programming_Week2)
 1. [Week3 Dijkstra Algorithm](./2018/NCYU_Programming_Week3)
+1. [Week4 Dynamic Programming I](./2018/NCYU_Programming_Week4)
